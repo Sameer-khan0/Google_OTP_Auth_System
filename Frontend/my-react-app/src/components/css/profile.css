@@ -1,0 +1,33 @@
+.profile-container {
+    backdrop-filter: brightness(0.5);
+    color: white;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 2%;
+    font-size: larger;
+  }
+  
+  .profile-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-list li {
+    margin-bottom: 10px;
+  }
+  
+  .profile-list img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+@media (max-width:768px) {
+    .profile-container{
+        font-size: small
+        ;
+        padding: 5%;
+        max-width: 230px;
+        margin: 20px auto;
+    }
+}

@@ -1,0 +1,62 @@
+.varifymain{
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+}
+.varleft{
+    width: 50%;
+    height: 100%;
+}
+.varleft img{
+    width: 100%;
+    height: 100%;
+}
+.varight{
+    width: 50%;
+    height: 100%;
+}
+.varight img{
+    object-fit: contain;
+    height: 50%;
+    width: 100%;
+}
+.varight .varcontent{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    place-items: center;
+    text-align: center;
+}
+.varcontent h3{
+    font-size: x-large;
+    color: black;
+    font-weight: 500;
+}
+.varcontent button{
+    height: 3rem;
+    width: 10rem;
+    font-size: larger;
+    border-radius: 1rem;
+    background-color: aquamarine;
+    border: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out;
+}
+.varcontent button:hover{
+    background-color: rgb(4, 255, 171);
+}
+@media (max-width:768px) {
+    .varifymain{
+        width: 80%;
+        height: 70%;
+    }
+    .varleft{
+        display: none;
+    }
+    .varight{
+        width: 100%;
+    }
+}

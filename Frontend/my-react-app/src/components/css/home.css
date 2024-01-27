@@ -1,0 +1,62 @@
+.home{
+    width: 50%;
+    color: white;
+    height: 70%;
+    display: grid;
+    text-align: center;
+    backdrop-filter: brightness(0.5);
+    place-items: center;
+}
+.homeb0x{
+    width: 90%;
+    height: 60%;
+    display: flex;
+    gap: 3%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userimg{
+    width: 50%;
+    height: 50%;
+}
+.userimg img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.usercon{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.con_btn{
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.con_btn button{
+    border: none;
+    box-shadow: 2px 4px 6px gray;
+    padding: 1.5%;
+    width: 8em;
+    border-radius: 1rem;
+    color: white;
+    font-weight: 500;
+    background: #27b3de;
+    transition: background 0.3s ease-in-out;
+}
+.con_btn button:hover{
+    background: rgb(0, 170, 186);
+    box-shadow: 3px 6px 9px gray;
+}
+
+@media (max-width:768px) {
+    .home{
+        width: 90%;
+        font-size: small;
+    }
+}
