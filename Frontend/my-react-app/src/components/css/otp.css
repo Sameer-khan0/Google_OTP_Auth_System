@@ -1,7 +1,6 @@
 #otpauth{
     width: 70%;
     height: 70%;
-    background: white;
     position: absolute;
     z-index: 11;
     display: flex;
@@ -11,6 +10,8 @@
     gap: 11%;
 }
 .otp-con{
+    backdrop-filter: brightness(0.5);
+    color: white;
     height: 60%;
     width: 60%;
     display: flex;
@@ -23,6 +24,7 @@
     height: 30%;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
 }
 #otp{
     height: 40%;
@@ -32,9 +34,11 @@
     padding: 2%;
     border: 1px solid #3c7fd2;
 }
-#varifying{
+.otp-inputs #verifying{
     border: none;
-    padding: 3%;
+    padding: 4%;
+    width: 50%;
+    border-radius: 1rem;
     background: #47a8ff;
     color: white;
 }

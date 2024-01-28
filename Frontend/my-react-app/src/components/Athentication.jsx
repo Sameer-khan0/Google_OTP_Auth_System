@@ -4,7 +4,6 @@ import Alert from "./Alert";
 import img from "../assets/img/signin.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import OTP from "./OTP";
 
 function Authentication() {
   const user = localStorage.getItem("token");
@@ -13,8 +12,7 @@ function Authentication() {
   useEffect(() => {
     user ? navigate('/home') : navigate('/');
   }, [user]);
-  const [renderotp,setrenderotp]=useState(false)
-  const [userinfo,setuserinfo]=useState({email:'',_id:''})
+
   const [authvalues, setauthvalues] = useState({});
   const [alertvalues, setalertvalues] = useState({
     show: false,
@@ -26,7 +24,6 @@ function Authentication() {
 
   const handleSignin = async (e) => {
     e.preventDefault();
-  
     try {
       const url = "http://localhost:4023/api/user/registered/user";
       const sendData = {
@@ -34,17 +31,12 @@ function Authentication() {
         email: authvalues.email,
         password: authvalues.password,
       };
-  
       document.getElementById('submit').value = 'Loading...';
-      
       const response = await axios.post(url, sendData);
-  
       if (response.data.status === "ok") {
         const userdata=response.data.userinfo
         if(userdata){
-          setuserinfo({ email: userdata.email, _id: userdata.id });
-          console.log(userinfo,userdata)
-          setrenderotp(true)
+          navigate("/otp", { state: { id:userdata.id } });
         }
       } else {
         setalertvalues({
@@ -74,7 +66,7 @@ function Authentication() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const url = 'http://localhost:4022/api/user/login';
+      const url = 'http://localhost:4023/api/user/login/user';
       const data = {
         email: authvalues.email,
         password: authvalues.password, 
@@ -143,7 +135,6 @@ function Authentication() {
 
   return (
     <>
-    {renderotp && <OTP data={{email:userinfo.email, id:userinfo._id}} />}
     <div id="auth">
       <div className="leftcon">
         <img src={img} alt="img" />

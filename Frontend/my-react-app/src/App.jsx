@@ -4,6 +4,7 @@ import Authentication from "./components/Athentication";
 import Home from "./components/Home";
 import Verification from "./components/Varification";
 import Profile from "./components/profile";
+import OTP from './components/OTP'
 
 function App() {
  
@@ -12,9 +13,10 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Authentication />} />
+          <Route path="/otp" element={<OTP />} />
           <Route path="/home" exact element={<Home />} />
           <Route path="/profile" exact element={<Profile />} />
-          <Route path="/user/:id/verify/:token" element={<Verification />} />
+          <Route path="/varify" element={<Verification />} />
         </Routes>
       </Router>
     </>

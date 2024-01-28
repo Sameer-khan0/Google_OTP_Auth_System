@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useLocation,useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./css/otp.css";
 
-function OTP(props) {
+function OTP() {
+  const navigate=useNavigate()
   const [otp, setotp] = useState();
-  const { id } = props.data;
+  const location = useLocation();
+  const id = location.state?.id
 
   const handelSubmnit = async () => {
     try {
@@ -12,7 +15,7 @@ function OTP(props) {
       document.getElementById("verifying").value = "Loading...";
       console.log(otp, id);
       if (otp.length == '' || otp.length !== 4 || !id) {
-        alert("Enter otp please");
+        alert("Enter vaild crudation");
         return;
       }
       const response = await axios.post(url, {
@@ -21,7 +24,7 @@ function OTP(props) {
       });
       if (response.data.status === "ok") {
         console.log(response.data);
-        alert("OTP varified");
+        navigate('/varify',{state:{isValid:true}})
       }
     } catch (error) {
       console.error(error);

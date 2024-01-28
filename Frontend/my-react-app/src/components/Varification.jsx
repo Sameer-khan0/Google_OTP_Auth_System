@@ -1,29 +1,12 @@
-import axios from "axios";
 import "./css/verify.css";
-import React, { useEffect, useState } from "react";
 import varifyimg from "../assets/img/verify.jpg";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import check from "../assets/img/Check.png";
+import { useLocation } from "react-router-dom";
 
 function Verification() {
-  const [isValid, setIsValid] = useState(false);
-  const { id, token } = useParams();
-
-  useEffect(() => {
-  	const verifyEmailUrl = async () => {
-  		try {
-  			const url = `http://localhost:4022/api/user/${id}/verify/${token}`;
-  			const { data } = await axios.get(url);
-      console.log(data)
-  			setIsValid(true);
-  		} catch (error) {
-  			console.log(error);
-  			setValidUrl(false);
-  		}
-  	};
-  	verifyEmailUrl();
-  }, [ id, token ]);
+  const location = useLocation();
+  const isValid = location.state?.isValid
 
   return (
     <>
